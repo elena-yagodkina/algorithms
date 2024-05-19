@@ -6,17 +6,19 @@ import ArrayList.arrayList.exception.NullItemException;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Service
-public class StringListImpl implements StringList {
+public class StringListImpl implements StringList<String> {
     private String[] array;
     private int size;
-    public StringListImpl() {
+
+    public StringListImpl(int i) {
         this.array = new String[10];
     }
 
     public void itemNotNull(String item) {
-        if(item == null) {
+        if (item == null) {
             throw new NullItemException("Элемент не может быть null");
         }
     }
@@ -29,6 +31,7 @@ public class StringListImpl implements StringList {
             throw new ItemNotFoundException("Элемент не найден");
         }
     }
+
     @Override
     public String add(String item) {
         itemNotNull(item);
@@ -121,7 +124,7 @@ public class StringListImpl implements StringList {
     }
 
     @Override
-    public boolean equals(StringList otherList) {
+    public boolean equals(List<String> otherList) {
         if (this == otherList) return true;
         if (!(otherList instanceof StringListImpl that)) return false;
         return size == that.size && Arrays.equals(array, that.array);
