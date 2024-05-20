@@ -1,18 +1,34 @@
 package ArrayList.arrayList.service;
 
-public interface StringList {
-    String add(String item);
-    String add(int index, String item);
-    String set(int index, String item);
-    String remove(String item);
-    String remove(int index);
-    boolean contains(String item);
-    int indexOf(String item);
-    int lastIndexOf(String item);
-    String get(int index);
-    boolean equals(StringList otherList);
+import java.util.List;
+
+public interface StringList<T> {
+    T add(T item);
+
+    T add(int index, T item);
+
+    T set(int index, T item);
+
+    T remove(T item);
+
+    T remove(int index);
+
+    boolean contains(T item);
+
+    int indexOf(T item);
+
+    int lastIndexOf(T item);
+
+    T get(int index);
+
+    boolean equals(List<T> otherList);
+
+    // Вернуть фактическое количество элементов.
     int size();
+
     boolean isEmpty();
+
     void clear();
-    String[] toArray();
+
+    T[] toArray();
 }

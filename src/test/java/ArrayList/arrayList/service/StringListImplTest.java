@@ -14,7 +14,7 @@ public class StringListImplTest {
 
     @BeforeEach
     public void setUp() {
-        stringList = new StringListImpl();
+        stringList = new StringListImpl(5);
         stringList.add(ITEM_1);
         stringList.add(ITEM_2);
         stringList.add(ITEM_3);
@@ -24,7 +24,7 @@ public class StringListImplTest {
 
     @Test
     void shouldReturnEmptyStringList() {
-        StringListImpl actual = new StringListImpl();
+        StringListImpl actual = new StringListImpl(5);
         assertTrue(actual.isEmpty());
     }
 
@@ -94,7 +94,7 @@ public class StringListImplTest {
 
     @Test
     void testEquals() {
-        StringListImpl comparisonList = new StringListImpl();
+        StringListImpl comparisonList = new StringListImpl(5);
         comparisonList.add(ITEM_1);
         comparisonList.add(ITEM_2);
         comparisonList.add(ITEM_3);
